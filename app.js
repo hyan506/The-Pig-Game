@@ -76,3 +76,11 @@ function init(){
     document.querySelector('.player-0-panel').classList.add('active');
 }
 
+document.addEventListener("keypress", function onEvent(event) {
+    if (event.key === ' ') {
+        roll();
+    }
+    else if (event.key === "Enter") {
+        hold();
+    }
+});
