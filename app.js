@@ -51,7 +51,15 @@ function hold() {
     if(gamePlaying){
     scores[activePlayer] += roundScore;
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
-        if (scores[activePlayer] >= 100) {
+        var input = document.querySelector('.final-score').value;
+        console.log(typeof(input));
+        var winningScore
+        if(input){
+            winningScore = input;
+        } else {
+            winningScore = 100;
+        }
+        if (scores[activePlayer] >= winningScore) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
