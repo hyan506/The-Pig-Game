@@ -65,8 +65,7 @@ function hold() {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-            document.getElementById('dice-1').style.display = 'none';
-            document.getElementById('dice-2').style.display = 'none';
+            hideDice();
             gamePlaying = false;
         }
         else{
@@ -82,8 +81,8 @@ function nextPlayer() {
     document.getElementById('current-1').textContent = '0';
     document.querySelector('.player-0-panel').classList.toggle('active');
     document.querySelector('.player-1-panel').classList.toggle('active');
-    document.getElementById('dice-1').style.display = 'none';
-    document.getElementById('dice-2').style.display = 'none';
+    hideDice();
+    //document.querySelector('.dice').style.display ='none';
 }
 
 function init(){
@@ -95,7 +94,7 @@ function init(){
     document.getElementById('score-1').textContent = '0';
     document.getElementById('current-0').textContent = '0';
     document.getElementById('current-1').textContent = '0';
-    document.querySelector('.dice').style.display = 'none';
+    hideDice();
     document.querySelector('#name-0').textContent = 'Player 1';
     document.querySelector('#name-1').textContent = 'Player 2';
     document.querySelector('.player-0-panel').classList.remove('winner');
@@ -103,6 +102,11 @@ function init(){
     document.querySelector('.player-0-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.remove('active');   
     document.querySelector('.player-0-panel').classList.add('active');
+}
+
+function hideDice(){
+    document.getElementById('dice-1').style.display = 'none';
+    document.getElementById('dice-2').style.display = 'none';
 }
 
 document.addEventListener("keypress", function onEvent(event) {
